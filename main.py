@@ -6,6 +6,6 @@ app = FastAPI()
 class User(BaseModel):
     user: str
 
-@app.post("/auth/me")
+@app.get("/auth/me")
 async def auth_me(user: User):
     return {"user": user.user, "ping": "pong"}
