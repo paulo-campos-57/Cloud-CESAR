@@ -3,9 +3,6 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-class User(BaseModel):
-    user: str
-
 @app.post("/auth/me")
-async def auth_me(user: User):
-    return {"user": user.user, "ping": "pong"}
+async def auth_me(username: str):
+    return {"user": username, "ping": "pong"}
